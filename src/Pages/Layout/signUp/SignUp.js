@@ -1,13 +1,10 @@
 // import React,{ useState } from "react";
 // import { Formik, Form, Field, ErrorMessage } from "formik";
-import '../signUp/SignUp.css';
 import Password  from "../../../Components/password"; 
 import Email  from "../../../Components/email"; 
 // import Modal  from "../../../Components/Modal"; 
 import Button from 'react-bootstrap/Button';
 
-// import FirstName from '../../../Components/FirstName'
-// import Verification from '../../../Components/Verification'
 import { useState } from 'react';
 
 export default  function SignUp() {
@@ -39,9 +36,6 @@ export default  function SignUp() {
         }} 
         />
 
-
-      {/*   <FirstName />
-        <Verification /> */}
 
 
       
