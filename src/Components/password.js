@@ -39,16 +39,15 @@ export default function Password({isOpen , onSubmit}) {
    Password
 </Button>
 
-
-
-     <Modal show={isOpen} onHide={handleClose}>
+     <Modal className='Create-account'  show={isOpen} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Password</Modal.Title>
+          <Modal.Title>Choose your password</Modal.Title>
         </Modal.Header>
+        <p className='Welcome'>Welcome to Boka! Enter your email or Phone to get started.</p>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Password</Form.Label>
+            <Form.Group className="form-floating mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label className="email-phone mb-5">Password</Form.Label>
               <Form.Control
                value={Password}
                onChange={handleChange}
@@ -61,10 +60,11 @@ export default function Password({isOpen , onSubmit}) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+    
+          <Button  className={"btn-disabled"}
+             type="submit"
+             id="button-input" 
+             onClick={handleSubmit}>
           Continue
           </Button>
         </Modal.Footer>

@@ -1,103 +1,74 @@
-import React, { useState } from "react";
-import '../Pages/Layout/signUp/SignUp.css'
+import React, { useState, Fragment } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
-
-
-
-
-export default  function Name({ onSubmit }) {
-
-  // switch (namea) {
-  //   case 'username':
-  //       if(value.length <= 4){
-  //           // we will set the error state
-
-  //           setErrors({
-  //               ...errors,
-  //               username:'Username atleast have 5 letters'
-  //           })
-  //       }else{
-  //           // set the error state empty or remove the error for username input
-
-  //           //omit function removes/omits the value from given object and returns a new object
-  //           let newObj = omit(errors, "username");
-  //           setErrors(newObj);
-            
-  //       }
-  //       break;
-
-
-
-    //  const [Name, setName] = useState("");
-    // const [isEnable, setEnable] = useState(true);
-    // const [isclass, setClass] = useState('bth-Submit');
-    // const handleKeyUp = () => {
-    //   if (Name.length > 5 ) {setEnable(false);
-    //     setClass('bth-Submit2')
-    //   }else {
-    //     setEnable(true);
-    //     setClass('bth-Submit')
-    //
-    //   }
-    // };
-    return (
-
-     
-      <div>
-
-
-<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-Name
-        </button>
-
-        <div className="modal fade" id="exampleModal2" tabIndex={-1} aria-labelledby="exampleModal2Labe2" aria-hidden="true">
-          <div className="modal-dialog">
-            <div className="modal-content p-4 Create-account">
-              <div className="d-flex justify-content-between ">
-                <h1 className="modal-title fs-5" id="exampleModal2Label">Please enter your name</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-              </div>
-              <p>Welcome to Boka! Enter your email or Phone to get started.</p>
-              <div className="">
-  
-<div>
-<form className="mb-3">
-<div className="form-floating">
-
-  <input type="text" class="form-control" id="floatingInputValue01" placeholder="Enter your first name" />
-  <label for="floatingInputValue01">First Name *</label>
-  </div>
-<br/>
-<div className="form-floating">
-<input type="text" class="form-control" id="floatingInputValue02" placeholder="Enter your last name" />
-  <label for="floatingInputValue02">Last Name *</label>
-  </div>
-</form>
-</div>
-
-        <button
-          className="bth-Submit2"
-          type="submit"
-          id="button-input"
-         
-          // onClick={() => onSubmit(Name)}
-        >
-          Continue
-        </button>
-    
-
-              </div>
-              
-            </div>
-          </div>
-        </div>
-
-      
-
-      
-      </div>
-    );
-  }
-
+export default function FirstName({isOpen , onSubmit}) {
+  const [show, setShow] = useState(false);
+  const [FirstName, setFirstName] = useState("");
+  const [LasttName, setLasttName] = useState("");
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
  
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(FirstName);
+    console.log("FirstName");
+    
+
+  };
+
+  return (
+    <Fragment>
+   
+   <Button  onClick={handleShow}>
+   FirstName
+</Button>
+
+     <Modal className='Create-account'  show={isOpen} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Please enter your name</Modal.Title>
+        </Modal.Header>
+        <p className='Welcome'>Welcome to Boka! Enter your email or Phone to get started.</p>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="form-floating mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label className="email-phone mb-5">First Name *</Form.Label>
+              <Form.Control
+              
+              
+                type="text"
+                placeholder="Enter your Password or phone"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="form-floating mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label className="email-phone mb-5">Last Name *</Form.Label>
+              <Form.Control
+             
+              
+                type="text"
+                placeholder="Enter your Password or phone"
+                autoFocus
+              />
+            </Form.Group>
+        
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+    
+          <Button  className={"btn-disabled"}
+             type="submit"
+             id="button-input" 
+             onClick={handleSubmit}>
+          Continue
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </Fragment>
+  );
+}

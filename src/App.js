@@ -1,6 +1,7 @@
 // import Login from './Pages/Layout/SignIn/login';
 import SignUp from './Pages/Layout/signUp/SignUp';
-// import M from '../src/Components/M';
+// import V from  './Components/Verification'
+ // import M from '../src/Components/M';
 
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
 
    
     <SignUp  />
+    {/* <V  /> */}
     {/* <Login /> */}
 
    

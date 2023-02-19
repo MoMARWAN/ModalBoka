@@ -8,56 +8,12 @@ import  Google from '../assets/images/svg/google.svg'
 import  Facebook from '../assets/images/svg/facebook.svg'
 
 
-export default function Email({isOpen , onSubmit}) {
-  const [Show, setShow] = useState(false);
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState(null);
-  const [isEnable, setEnable] = useState(true);
-  const [isclass, setClass] = useState('bth-Submit');
- 
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-
-  const handleKeyUp = () => {
-    if (email.length > 0 ) {setEnable(false);
-      setClass('bth-Submit')
-    }else {
-      setEnable(true);
-      setClass('btn-disabled')
-
-    }
-  };
-  function isValidEmail(email) {
-
-    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test;
- 
-  }
-
-  const handleChange = event => {
-    setEmail(event.target.value);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(email);
-    handleClose()
-    console.log("test");
-    setError(null);
-
-    if (isValidEmail(email)) {
-      console.log('The email is valid');
-    } else {
-      setError('Email is invalid');
-    }
-  };
+export default function Modal({isOpen , onSubmit}){
+            
 
   return (
     <Fragment>
-   
-   <Button  onClick={handleShow}>
-SignUp
-</Button>
+
 
 
  <Modal className='Create-account' show={Show} onHide={handleClose}>
@@ -74,7 +30,7 @@ SignUp
              onKeyUp={handleKeyUp}
           onChange={handleChange}
                value={email}
-                type="email"
+                type="text"
                 placeholder="Enter your email or phone"
                 
               />
@@ -102,7 +58,6 @@ SignUp
       <button  type="button" class="btn btn-light bbl"> <img src={Google} alt="" /> <div> Continue with  Google </div></button>
       <button  type="button" class="btn btn-light bbl"> <img src={Apple} alt="" /> <div> Continue with  Google </div></button>
       <button  type="button" class="btn btn-light bbl"><img src={Facebook} alt="" /> <div> Continue with  Google </div></button>
-     
       </div>
 
         </Modal.Body>
