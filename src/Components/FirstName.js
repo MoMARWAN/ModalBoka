@@ -1,23 +1,39 @@
 import React, { useState, Fragment } from 'react';
+import {Formik,Form,Field} from 'formik';
+import * as Yup from 'yup';
+
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Form1 from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-export default function FirstName({isOpen , onSubmit}) {
+export default function Name({isOpen , onSubmit}) {
   const [show, setShow] = useState(false);
-  const [FirstName, setFirstName] = useState("");
-  const [LasttName, setLasttName] = useState("");
+ 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
  
+  const SignUpSchema = Yup.object().shape(
+    {
+      FirstName: Yup.string()
+        .min(5,'Should be 5 character long')
+        .max(15,'should not exceed 15 characters')
+        .required('Required'),
 
+        LasttName: Yup.string()
+        .min(5,'Should be 5 character long')
+        .max(15,'should not exceed 15 characters')
+        .required('Required'),
+
+       
+    }
+);
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(FirstName);
-    console.log("FirstName");
+    onSubmit(Name);
+    console.log("Name");
     
 
   };
@@ -35,29 +51,51 @@ export default function FirstName({isOpen , onSubmit}) {
         </Modal.Header>
         <p className='Welcome'>Welcome to Boka! Enter your email or Phone to get started.</p>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="form-floating mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="email-phone mb-5">First Name *</Form.Label>
-              <Form.Control
-              
-              
-                type="text"
-                placeholder="Enter your Password or phone"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="form-floating mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="email-phone mb-5">Last Name *</Form.Label>
-              <Form.Control
-             
-              
-                type="text"
-                placeholder="Enter your Password or phone"
-                autoFocus
-              />
-            </Form.Group>
-        
+        <Formik
+            initialValues = {
+                {
+                  Firstname:'',
+                  LasttName:'',
+                }
+            }
+            validationSchema = {SignUpSchema}
+            onSubmit = {values => {
+                alert(values);
+            }}
+            >
+            { ({errors,touched}) => (
+           <Form1 onSubmit={handleSubmit}>
+            <Form>
+            <Form1.Group className="form-floating mb-3" controlId="exampleForm.ControlInput1">
+              <Form1.Label className="email-phone mb-5">firstname</Form1.Label>
+              <Field name="firstname" />
+                 {
+                     errors.Firstname && touched.Firstname ? (<div>{errors.Firstname}</div>) : null
+                 }
+            </Form1.Group>
+
+            <Form1.Group className="form-floating mb-3" controlId="exampleForm.ControlInput2">
+              <Form1.Label className="email-phone mb-5">lastname</Form1.Label>
+              <Field name="lastname" />
+                 {
+                     errors.Lastname && touched.Lastname ? (<div>{errors.Lastname}</div>) : null
+                 }
+            </Form1.Group>
+
+
+
+
+            {/* <Field name="lastname" />
+                 {
+                     errors.lastname && touched.lastname ? (<div>{errors.lastname}</div>) : null
+                 }
+           */}
           </Form>
+          </Form1>
+          )}
+  </Formik>
+
+
         </Modal.Body>
         <Modal.Footer>
     

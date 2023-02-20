@@ -12,6 +12,7 @@ export default function App() {
    
     <SignUp  />
     {/* <V  /> */}
+
     {/* <Login /> */}
 
    
