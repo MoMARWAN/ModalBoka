@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-verification-input": "^3.1.2",
     "react18-input-otp": "^1.1.2",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.0"
   },

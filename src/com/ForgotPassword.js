@@ -37,7 +37,7 @@ export default  function Forgotpassword({ onSubmit,children }) {
          onKeyUp=""
        //   onChange={(event) => setUsername(event.target.value)}
        />
-        <label for="floatingInput" className="email-phone">Email/Phone</label>
+        <label htmlFor="floatingInput" className="email-phone">Email/Phone</label>
 </div>
 
         <button

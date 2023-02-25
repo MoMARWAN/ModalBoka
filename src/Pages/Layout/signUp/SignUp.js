@@ -1,5 +1,5 @@
 // import React,{ useState } from "react";
-import Password  from "../../../Components/password"; 
+// import Password  from "../../../Components/Password"; 
 import Email  from "../../../Components/email"; 
 import FirstName  from "../../../Components/FirstName"; 
 import Verification  from "../../../Components/Verification"; 
@@ -26,22 +26,21 @@ export default  function SignUp(isOpen) {
 
         <Email isOpen={currentModal=='Email'}   
            onSubmit={(email)=>{
-          SetCurrentModal("Password")
+          SetCurrentModal("Name")
           
         
         }} /> 
 
-       <Password  isOpen={currentModal==="Password"} 
-        onSubmit={(Password)=>{
+       {/* <Password  isOpen={currentModal==="password"} 
+        onSubmit={(password)=>{
           SetCurrentModal("Name")
         
         }} 
-        />
-
+        /> */}
 
         <FirstName
         isOpen={currentModal==="Name"} 
-        onSubmit={(Name)=>{
+        onSubmit={(firstName)=>{
           SetCurrentModal("Verification")
         }} 
         />
@@ -49,7 +48,7 @@ export default  function SignUp(isOpen) {
         <Verification
         isOpen={currentModal==="Verification"} 
         onSubmit={(Name)=>{
-          SetCurrentModal("")
+          SetCurrentModal("Email")
         }} 
         />
 

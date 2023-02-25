@@ -57,7 +57,7 @@ const password = props => {
     <div className="SignUpForm">
       <h1 className="SignInHeading">SIGN UP</h1>
       <Form noValidate onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicUserName">
+        <Form.Group >
           <Form.Control
             size="lg"
             className="SignUpFormControls"
@@ -73,7 +73,7 @@ const password = props => {
         </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group >
           <Form.Control
             type="email"
             placeholder="Email"
@@ -89,7 +89,7 @@ const password = props => {
         </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formBasicConfirmEmail">
+        <Form.Group >
           <Form.Control
             type="email"
             className="SignUpFormControls"
@@ -105,7 +105,7 @@ const password = props => {
         </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group >
           <Form.Control
             className="SignUpFormControls"
             size="lg"
@@ -121,7 +121,7 @@ const password = props => {
         </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formBasicConfirmPassword">
+        <Form.Group>
           <Form.Control
             className="SignUpFormControls"
             size="lg"
@@ -150,5 +150,3 @@ const password = props => {
     </Formik>
   );
 };
-
-export default password;

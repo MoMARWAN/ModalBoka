@@ -24,12 +24,12 @@ export default  function Resetpassword({ onSubmit }) {
               </div>
               <p>Welcome to Boka! Enter your email or Phone to get started.</p>
               <div className="">
-              <div class="form-floating">
+              <div className="form-floating">
   <input type="password" className="form-control" id="floatingPassword" placeholder="Password"  
         //   onKeyUp={handleKeyUp}
           onChange={(event) => (event.target.value)}  name="password" autoComplete="current-password" required  />
   <i className="far fa-eye" id="togglePassword" />
-  <label for="floatingPassword">Password</label>
+  <label htmlFor="floatingPassword">Password</label>
   
 </div>
         

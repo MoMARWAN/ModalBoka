@@ -34,21 +34,21 @@ export default  function Authentication() {
           onKeyUp=""
         //   onChange={(event) => setUsername(event.target.value)}
         />
-         <label for="floatingInput" className="email-phone">Email/Phone</label>
+         <label htmlFor="floatingInput" className="email-phone">Email/Phone</label>
 </div>
 
-<div class="form-floating">
+<div className="form-floating">
   <input type="password" className="form-control" id="floatingPassword" placeholder="Password"  
           onKeyUp=""
           onChange={(event) => (event.target.value)}  name="password" autoComplete="current-password" required  />
   <i className="far fa-eye" id="togglePassword" />
-  <label for="floatingPassword">Password</label>
+  <label htmlFor="floatingPassword">Password</label>
   
 </div>
 
 <div className="d-flex justify-content-between">
  
-<div class="checkbox">
+<div className="checkbox">
       <label className="rememberMe"><input className="remember" type="checkbox" name="remember"/> Remember me</label>
     </div>
     <a href="#">Forgot password?</a>
@@ -75,12 +75,12 @@ export default  function Authentication() {
 
       <div>
 
-      <button type="button" class="btn btn-light">
+      <button type="button" className="btn btn-light">
          <img src={Apple} alt="horse" />
          <span>Continue with Apple</span>
           </button>
-      <button type="button" class="btn btn-light"> <img src={Google} alt="horse" /> Continue with  Google</button>
-      <button type="button" class="btn btn-light"><img src={Facebook} alt="horse" />Continue with Facebook</button>
+      <button type="button" className="btn btn-light"> <img src={Google} alt="horse" /> Continue with  Google</button>
+      <button type="button" className="btn btn-light"><img src={Facebook} alt="horse" />Continue with Facebook</button>
 
       </div>
 
