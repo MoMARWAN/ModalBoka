@@ -108,7 +108,8 @@ export default function Name({ isOpen, onSubmit }) {
         </Modal.Body>
         <Modal.Footer>
 
-          <Button className={"btn-disabled"}
+          <Button 
+          className={"btn-disabled"}
             type="submit"
             id="button-input"
 
