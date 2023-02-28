@@ -11,21 +11,18 @@ import * as Yup from 'yup';
 
 
 
-export default function Password({  onSubmit }) {
+export default function Password({ onSubmit }) {
 
 
 
   const [password, setPassword] = useState("");
-
   const handleClose = () => setPassword(false);
-
-
 
   const SignUpSchema = Yup.object().shape(
     {
       password: Yup.string()
         .required("password is required")
-        .min(6, "password is too short - should be 6 chars minimum"),
+        .min(6, "password is too short - should be 6 chars"),
     }
   );
 
@@ -76,7 +73,7 @@ export default function Password({  onSubmit }) {
 
                   />
                   {
-                    errors.password && touched.password ? (<div>{errors.password}</div>) : null
+                    errors.password && touched.password ? (<div className='errors'>{errors.password}</div>) : null
                   }
                 </Form.Group>
 

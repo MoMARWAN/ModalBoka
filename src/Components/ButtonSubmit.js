@@ -3,7 +3,7 @@ import '../Pages/Layout/signUp/SignUp.css';
 
 export default function ButtonSubmit (
  
-  { Title }
+  { Title , ...rest }
     
 ){
   
@@ -12,9 +12,9 @@ export default function ButtonSubmit (
     <button                        
     className="btn-disabled"
     type="submit"
-    id="button-input"
-    // disabled={isEnable}
     
+    // disabled={isEnable}
+    {...rest}
   >
     {Title}
  </button>

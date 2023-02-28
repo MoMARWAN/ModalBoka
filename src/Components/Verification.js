@@ -1,12 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import OtpInput from 'react18-input-otp';
-
-
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 import '../Pages/Layout/signUp/SignUp.css'
-
+import ModalBoka from './ModalBoka';
+import ButtonSubmit from './ButtonSubmit';
 
 
 
@@ -32,38 +28,20 @@ export default function Verification({isOpen , onSubmit}) {
 
   return (
     <Fragment>
-   <Button  onClick={handleShow}>
-   Verification
-</Button>
 
+<ModalBoka
+         
+        Title="Verification"
+        Welcome="We sent an email (rebecca.oys@gmail.com) to verify your account please verify your self"
+        FormGroup={
+            <div>
+          <OtpInput  className='otp-st' value={otp} onChange={handleChange} numInputs={6} separator={<span></span>} />
 
-
-
-
-
-
-     <Modal className='Create-account'  show={isOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Verification</Modal.Title>
-        </Modal.Header>
-        <p className='Welcome'>We sent an email (rebecca.oys@gmail.com) to verify your account please verify your self</p>
-        <Modal.Body>
-          
-        <OtpInput  className='otp-st' value={otp} onChange={handleChange} numInputs={6} separator={<span></span>} />
-
-             
-
-        </Modal.Body>
-        <Modal.Footer>
-    
-          <Button   className={"btn-disabled"}
-             type="submit"
-             id="button-input" 
-             onClick={handleSubmit}>
-           Verify Now
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          <ButtonSubmit Title='Verify Now'  
+          />
+          </div>
+        }      
+      />
     </Fragment>
   );
 }

@@ -10,12 +10,14 @@ import Google from '../assets/images/svg/google.svg'
 import Facebook from '../assets/images/svg/facebook.svg'
 import ButtonSubmit from './ButtonSubmit'
 import FieldLabel from './FieldLabel'
+import classNames from 'classnames';
 
 
 export default function Email({ isOpen, onSubmit }) {
 
   const [email, setEmail] = useState('');
   const handleClose = () => setEmail(false);
+
 
   const SignUpSchema = Yup.object().shape(
     {
@@ -39,6 +41,7 @@ export default function Email({ isOpen, onSubmit }) {
 
 
       <ModalBoka
+         show={isOpen}
         Title="Create account"
         Welcome="Welcome to Boka! Enter your email or Phone to get started."
         FormGroup={
@@ -67,17 +70,21 @@ export default function Email({ isOpen, onSubmit }) {
 
                   <Form.Label htmlFor="floatingInput" className="email-phone mb-5">Email/Phone</Form.Label>
                   <FieldLabel
-
+                   
                     name="email"
                     type="text"
                     placeholder='Enter your email or phone'
-
+                    id='emaillength'
                   />
                   {errors.email && touched.email ? (<div className='errors'>{errors.email}</div>) : null}
                 </Form.Group>
 
-                <ButtonSubmit Title='Continue' />
-
+                <ButtonSubmit Title='Continue' 
+                
+                className={classNames('btn-submit',{
+                      'btn-disabled': email.length > 1
+                     
+                   })} />
               </Form>
 
 

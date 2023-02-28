@@ -6,7 +6,11 @@ a {
     text-align: center;
 
 }
-
+.SignUp{
+    background: #FF914D !important;
+    border: 0 !important;
+    width: 10rem;
+}
 .btn-submit {
     width: 100%;
     height: 3.5rem;

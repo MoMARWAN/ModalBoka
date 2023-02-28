@@ -4,18 +4,14 @@ import * as Yup from 'yup';
 
 
 export default function FieldLabel(
-    { name, type, placeholder }
+    {...rest }
 ) {
     return (
 
         <Field
-            name="email"
+            name=""
             className='input-emil form-control'
-            //  onKeyUp={handleKeyUp}
-            placeholder=""
-            type=""
-            
-
+           {...rest}
         />
 
 
